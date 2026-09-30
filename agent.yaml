@@ -1,0 +1,12 @@
+spec_version: "0.1.0"
+name: performance-profiling-agent
+version: 1.0.0
+description: A framework-independent agent for profiling application performance, identifying hotspots, comparing benchmark runs, and producing evidence-based optimization findings.
+skills:
+  - skills/performance-analysis/SKILL.md
+  - skills/benchmark-analysis/SKILL.md
+  - skills/hotspot-detection/SKILL.md
+tools:
+  - tools/profile_source.py
+  - tools/analyze_benchmark.py
+  - tools/detect_hotspots.py
