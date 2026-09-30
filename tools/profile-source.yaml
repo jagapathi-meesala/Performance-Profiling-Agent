@@ -1,0 +1,21 @@
+name: profile-source
+description: Analyze caller-supplied source code metrics to identify performance-sensitive constructs and produce structured profiling findings.
+version: 0.1.0
+input_schema:
+  type: object
+  properties:
+    source:
+      type: string
+      minLength: 1
+    language:
+      type: string
+      minLength: 1
+  required:
+    - source
+    - language
+output_schema:
+  type: object
+implementation:
+  type: script
+  path: ../tools/profile_source.py
+  runtime: python3

@@ -1,0 +1,27 @@
+name: detect-hotspots
+description: Analyze caller-supplied profiling measurements and identify the highest-cost performance hotspots.
+version: 0.1.0
+input_schema:
+  type: object
+  properties:
+    samples:
+      type: array
+      items:
+        type: object
+        properties:
+          name:
+            type: string
+          duration_ms:
+            type: number
+            minimum: 0
+        required:
+          - name
+          - duration_ms
+  required:
+    - samples
+output_schema:
+  type: object
+implementation:
+  type: script
+  path: ../tools/detect_hotspots.py
+  runtime: python3

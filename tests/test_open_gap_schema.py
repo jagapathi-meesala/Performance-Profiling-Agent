@@ -12,7 +12,16 @@ def test_manifest_required_fields_and_local_references():
     for key in ("skills", "tools"):
         assert isinstance(data[key], list)
         assert all(isinstance(item, str) for item in data[key])
-        assert all((ROOT / item).is_file() for item in data[key])
+        if key == "skills":
+            assert all(
+                (ROOT / "skills" / item / "SKILL.md").is_file()
+                for item in data[key]
+            )
+        else:
+            assert all(
+                (ROOT / "tools" / f"{item}.yaml").is_file()
+                for item in data[key]
+            )
     assert "display_name" not in data
     assert "entrypoint" not in data
     assert "portability" not in data

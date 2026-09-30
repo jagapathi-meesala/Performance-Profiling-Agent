@@ -1,0 +1,23 @@
+name: analyze-benchmark
+description: Compare caller-supplied benchmark measurements and identify statistically meaningful performance changes.
+version: 0.1.0
+input_schema:
+  type: object
+  properties:
+    baseline:
+      type: array
+      items:
+        type: number
+    candidate:
+      type: array
+      items:
+        type: number
+  required:
+    - baseline
+    - candidate
+output_schema:
+  type: object
+implementation:
+  type: script
+  path: ../tools/analyze_benchmark.py
+  runtime: python3
